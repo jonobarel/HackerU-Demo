@@ -68,20 +68,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (!_doJump && Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            InitiateJump();
-
+            _doJump = true;
+            
         }
     }
 
-    public void InitiateJump()
-    {
-        if (isGrounded)
-        {
-            _doJump = true;    
-        }
-    }
     private int SumNumbers(int num1, int num2)
     {
         int sumResult = num1 + num2;
