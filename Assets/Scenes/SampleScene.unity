@@ -235,7 +235,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1701429691808107414, guid: 391ce390cdab8314690fd8a2ce18b335, type: 3}
   m_PrefabInstance: {fileID: 1701429691762993478}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1530275484}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 678b6875a89bdf440ae167c6db18f409, type: 3}
@@ -2982,7 +2982,6 @@ GameObject:
   - component: {fileID: 518571044}
   - component: {fileID: 518571043}
   - component: {fileID: 518571042}
-  - component: {fileID: 518571045}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -3030,7 +3029,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -3054,7 +3053,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 518571043}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 89367248}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: InitiateJump
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &518571043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3093,36 +3104,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 518571040}
   m_CullTransparentMesh: 1
---- !u!114 &518571045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 518571040}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa61c4b6714495548aa22d3b358ca483, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseImage: {fileID: 0}
-  mouseOverImage: {fileID: 0}
-  mouseDownImage: {fileID: 0}
-  ButtonDownEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1530275484}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -4944,11 +4925,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1475288691}
   m_CullTransparentMesh: 1
---- !u!1 &1530275484 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1701429691808107401, guid: 391ce390cdab8314690fd8a2ce18b335, type: 3}
-  m_PrefabInstance: {fileID: 1701429691762993478}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1558024473
 GameObject:
   m_ObjectHideFlags: 0
@@ -5502,6 +5478,10 @@ PrefabInstance:
     - target: {fileID: 1701429691808107410, guid: 391ce390cdab8314690fd8a2ce18b335, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1701429691808107414, guid: 391ce390cdab8314690fd8a2ce18b335, type: 3}
+      propertyPath: jumpPower
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 391ce390cdab8314690fd8a2ce18b335, type: 3}
