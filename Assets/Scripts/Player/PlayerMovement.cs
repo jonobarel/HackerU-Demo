@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [SerializeField] [Range(1f,10f)] private float jumpPower;
+    [SerializeField] [Range(0f,10f)] private float jumpPower;
     [SerializeField] private int score;   
 
     private Rigidbody2D rb2d;
@@ -26,37 +26,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //Changing how fast the player's rb2d is moving and in which direction.
-        //(GetAxis saves us if statements)
-        //Keeps the same velocity on Y and changes the velocity on X
-
-
-        //rb2d.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rb2d.velocity.y);
-
-        //for use in 3D, with normal rigidBody
-        //rb.velocity = new Vector3(x, y, z);
-
-        //If we had top down game movement style
-        //rb2d.velocity = new Vector2(rb2d.velocity.x, Input.GetAxis("Vertical") * speed);
-        //rb2d.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, Input.GetAxis("Vertical") * speed);
-
-        //For 3D - (With Rigidbody "normal" component
-        //rb2d.velocity = new Vector3(Input.GetAxis("Horizontal") * speed, rb2d.velocity.y, rb2d.velocity.z);
-
-        //Player movement on X axis
-        #region
-        float horizontalInput = Input.GetAxis("Horizontal");
-        rb2d.velocity = new Vector2(horizontalInput * speed, rb2d.velocity.y);
-
-        //Flip player | Vector2(X, Y);
-        if (horizontalInput > 0.01f)
-            transform.localScale = new Vector2(1, 1); // Vector2.one; //turn right (Vector2.one =  new Vector2(1,1));
-        else if (horizontalInput < - 0.01f)
-            transform.localScale = new Vector2(-1, 1); //turn left
-        #endregion
-
-        //When space is pressed, we will maintain the current velocity on the X Axis 
-        //And apply a velocity of "speed" on the Y Axis
         if (_doJump)
         {
             rb2d.AddForce(jumpPower * Vector2.up, ForceMode2D.Impulse);
@@ -68,10 +37,17 @@ public class PlayerMovement : MonoBehaviour
 
     public void Update()
     {
-        if (!_doJump && Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            DoJump();
+        }
+    }
+
+    public void DoJump()
+    {
+        if (!_doJump && isGrounded)
         {
             _doJump = true;
-            
         }
     }
 
@@ -106,5 +82,15 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = true;
         }
+    }
+
+    public void ChangeJumpPower(float newJumpPower)
+    {
+        if (newJumpPower < 0)
+        {
+            return;
+        }
+
+        jumpPower = newJumpPower;
     }
 }
