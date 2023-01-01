@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Item : MonoBehaviour
@@ -5,11 +6,14 @@ public class Item : MonoBehaviour
     [Header("Item Properties")]
     public int itemScore;
     public string description;
+
+    private ItemPlacer itemPlacer;
+    public  Transform mySpawnPoint ;
     
 
-    void Start()
+    void Awake()
     {
-        
+        itemPlacer = FindObjectOfType<ItemPlacer>();
     }
 
     void Update()
@@ -20,12 +24,13 @@ public class Item : MonoBehaviour
 
 
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.tag == "Player")
-    //    {
-    //        //Debug.Log("Item picked up by the player!");
-    //        //Destroy(this.gameObject);
-    //    }
-    //}
+    private void OnTriggerEnter2D(Collider2D othercollider)
+    {
+        if (othercollider.CompareTag("Player"))
+        {
+            Debug.Log("Item picked up by the player!");
+            itemPlacer.ObjectTaken(mySpawnPoint);
+            Destroy(this.gameObject);
+        }
+    }
 }

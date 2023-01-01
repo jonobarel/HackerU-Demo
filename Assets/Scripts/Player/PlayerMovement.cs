@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
 
             Debug.Log(collision.gameObject.name + " picked up by the player! The total score is: " + score);
             Debug.Log("");
-            Destroy(collision.gameObject);
+            
         }
 
     }

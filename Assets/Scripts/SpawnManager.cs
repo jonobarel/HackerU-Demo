@@ -4,37 +4,45 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    
     [SerializeField]
-    Transform[] spawnPointPositions;
+    Item[] itemPrefabs; //Prefabs of items to instantiate
+
     [SerializeField]
-    Item[] itemPrefabs;
+    int startingPoolSize;
+    
+    [SerializeField]
+    private List<Item> itemPool;
 
     [SerializeField]
     GameObject itemsParent;
 
-    void Start()
+    void Awake()
     {
+        itemPool = new List<Item>();
 
-        spawnPointPositions = GetComponentsInChildren<Transform>(); //remember to exclude self
+        RefillPool();
 
-        int i = 0;
-
-        foreach (Transform spawnP in spawnPointPositions)
-        {
-            if (spawnP.gameObject != gameObject)
-            {
-                int prefabIndex = Random.Range(0, itemPrefabs.Length);
-                Item itemToSpawn = itemPrefabs[prefabIndex];
-                Item newItem = Instantiate(itemToSpawn, spawnP.position, Quaternion.identity, itemsParent.transform);
-                newItem.name = $"{itemToSpawn.name}_{i}";
-                i++;
-            }
-        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void RefillPool()
     {
-        
+        for (int i = 0; i < startingPoolSize; i++)
+        {
+            int prefabIndex = Random.Range(0, itemPrefabs.Length);
+            Item newItem = Instantiate(itemPrefabs[prefabIndex], transform);
+            newItem.gameObject.SetActive(false);
+            itemPool.Add(newItem);
+        }
+    }
+    public Item GetItemFromPool()
+    {
+        Item item = itemPool[0];
+        itemPool.Remove(item);
+        if (itemPool.Count == 0)
+        {
+            RefillPool();
+        }
+        return item;
     }
 }
