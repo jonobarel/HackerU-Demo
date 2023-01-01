@@ -16,6 +16,7 @@ public class JumpStrengthAdjuster : MonoBehaviour
     {
         player = GetComponent<PlayerMovement>();
     }
+    
 
     public void ValueChanged(float newValue)
     {
