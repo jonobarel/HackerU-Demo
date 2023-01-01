@@ -90,4 +90,14 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = true;
         }
     }
+    
+    public void ChangeJumpPower(float newJumpPower)
+    {
+        if (newJumpPower < 0)
+        {
+            return;
+        }
+
+        jumpPower = newJumpPower;
+    }
 }
