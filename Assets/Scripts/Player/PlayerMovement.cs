@@ -16,12 +16,15 @@ public class PlayerMovement : MonoBehaviour
     }
 
     [SerializeField]
-    bool isGrounded;
+    public bool isGrounded;
+
+    private ScoreUI scoreUI;
 
     // Start is called before the first frame update
     void Start()
     {
         score = 0;
+        scoreUI = FindObjectOfType<ScoreUI>();
     }
 
     // Update is called once per frame
@@ -75,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
         {
             int itemScoreToAdd = collision.gameObject.GetComponent<Item>().itemScore;
             score = score + itemScoreToAdd;
+            scoreUI.SetScore(score);
 
             Debug.Log(collision.gameObject.name + " picked up by the player! The total score is: " + score);
             Debug.Log("");

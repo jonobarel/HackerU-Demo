@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CountdownTimer : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class CountdownTimer : MonoBehaviour
     private float _endTime;
     private float _currentTime;
     private float _runningDuration;
+
+    [SerializeField] private UnityEvent onTimerElapse;
 
     private bool isRunning = false;
     
@@ -33,7 +37,7 @@ public class CountdownTimer : MonoBehaviour
 
     void Start()
     {
-        StartTimer();
+        
     }
     void Update()
     {
@@ -45,6 +49,10 @@ public class CountdownTimer : MonoBehaviour
             {
                 Debug.Log($"Timer {name} finished!");
                 isRunning = false;
+                if (onTimerElapse != null)
+                {
+                    onTimerElapse.Invoke();
+                }
             }
         }
     }

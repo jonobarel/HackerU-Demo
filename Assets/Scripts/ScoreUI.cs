@@ -17,9 +17,8 @@ public class ScoreUI : MonoBehaviour
         tmpText.text = "0";
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetScore(int newScore)
     {
-        
+        tmpText.text = $"{newScore}";
     }
 }

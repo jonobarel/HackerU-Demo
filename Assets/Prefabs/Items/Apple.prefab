@@ -7,9 +7,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1723878421121677734, guid: 7e73f818256ad0147bfab9fd4beca3fc, type: 3}
+      propertyPath: itemScore
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2640653781414755376, guid: 7e73f818256ad0147bfab9fd4beca3fc, type: 3}
       propertyPath: m_Name
-      value: Collide
+      value: Apple
       objectReference: {fileID: 0}
     - target: {fileID: 2640653781414755381, guid: 7e73f818256ad0147bfab9fd4beca3fc, type: 3}
       propertyPath: m_RootOrder
