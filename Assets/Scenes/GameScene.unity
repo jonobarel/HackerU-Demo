@@ -7009,7 +7009,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.5000153, y: 0}
+  m_AnchoredPosition: {x: -2.5, y: 0}
   m_SizeDelta: {x: -25, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2050623654
@@ -7363,6 +7363,22 @@ PrefabInstance:
     - target: {fileID: 1701429691808107410, guid: 391ce390cdab8314690fd8a2ce18b335, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1701429691808107412, guid: 391ce390cdab8314690fd8a2ce18b335, type: 3}
+      propertyPath: m_SpriteTilingProperty.drawMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1701429691808107412, guid: 391ce390cdab8314690fd8a2ce18b335, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1701429691808107412, guid: 391ce390cdab8314690fd8a2ce18b335, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1701429691808107413, guid: 391ce390cdab8314690fd8a2ce18b335, type: 3}
+      propertyPath: m_DrawMode
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1701429691808107414, guid: 391ce390cdab8314690fd8a2ce18b335, type: 3}
       propertyPath: jumpPower
